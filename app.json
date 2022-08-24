@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "rate-repo",
+    "owner": "happi89",
     "slug": "rate-repo",
     "version": "1.0.0",
     "orientation": "portrait",
