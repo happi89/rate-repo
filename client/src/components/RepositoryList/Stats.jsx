@@ -18,6 +18,8 @@ function Stats({ repo }) {
 	const roundNum = (num) => {
 		if (num > 999) {
 			return Math.round(num / 100) / 10 + 'k';
+		} else {
+			return num;
 		}
 	};
 
