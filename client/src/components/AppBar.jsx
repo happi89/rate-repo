@@ -11,12 +11,13 @@ const styles = StyleSheet.create({
 		paddingTop: Constants.statusBarHeight + 5,
 		backgroundColor: '#24292e',
 		flexDirection: 'row',
+		paddingHorizontal: 4,
 	},
 	text: {
 		color: 'white',
-		paddingTop: 6,
+		paddingTop: 8,
 		paddingBottom: 12,
-		paddingLeft: 12,
+		paddingHorizontal: 12,
 		fontWeight: theme.fontWeights.bold,
 		fontSize: 16,
 		letterSpacing: 1,
@@ -39,15 +40,24 @@ const AppBar = () => {
 				<Link to='/'>
 					<Text style={styles.text}>Repositories</Text>
 				</Link>
-
 				{data?.me === null ? (
-					<Link to='/SignIn'>
-						<Text style={styles.text}>Sign In</Text>
-					</Link>
+					<>
+						<Link to='/SignIn'>
+							<Text style={styles.text}>Sign In</Text>
+						</Link>
+						<Link to='/SignUp'>
+							<Text style={styles.text}>Sign Up</Text>
+						</Link>
+					</>
 				) : (
-					<Pressable onPress={signOut}>
-						<Text style={styles.text}>Sign Out</Text>
-					</Pressable>
+					<>
+						<Link to='/CreateReview'>
+							<Text style={styles.text}>Create Review</Text>
+						</Link>
+						<Pressable onPress={signOut}>
+							<Text style={styles.text}>Sign Out</Text>
+						</Pressable>
+					</>
 				)}
 			</ScrollView>
 		</View>

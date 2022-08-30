@@ -66,10 +66,13 @@ const ItemSeparator = () => <View style={styles.separator} />;
 const SingleRepository = ({ open, repo }) => {
 	const { repoId } = useParams();
 
-	const { data } = useQuery(GET_REVIEWS, {
+	const { loading, error, data } = useQuery(GET_REVIEWS, {
 		variables: { repositoryId: repoId },
 		fetchPolicy: 'cache-and-network',
 	});
+
+	if (loading) return <Text>Loading...</Text>;
+	if (error) return <Text>{`Error! ${error.message}`}</Text>;
 
 	const reviews = data
 		? data.repository.reviews.edges.map((edge) => edge.node)
@@ -82,7 +85,6 @@ const SingleRepository = ({ open, repo }) => {
 			renderItem={({ item }) => <ReviewItem review={item} />}
 			keyExtractor={({ id }) => id}
 			ListHeaderComponent={() => <RepositoryItem open={open} repo={repo} />}
-			// ...
 		/>
 	);
 };

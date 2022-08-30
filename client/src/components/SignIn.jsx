@@ -41,11 +41,11 @@ const styles = StyleSheet.create({
 const validationSchema = yup.object().shape({
 	username: yup
 		.string()
-		.min(3, 'Username must be atleast 3 characters')
+		.min(1, 'Username must be atleast 3 characters')
 		.required('password is required'),
 	password: yup
 		.string()
-		.min(3, 'Password must be atleast 3 characters')
+		.min(5, 'Password must be atleast 3 characters')
 		.required('password is required'),
 });
 

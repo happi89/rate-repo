@@ -1,8 +1,9 @@
-import { FlatList, View, StyleSheet, Pressable } from 'react-native';
+import { useState } from 'react';
+import { FlatList, Pressable } from 'react-native';
 import Text from '../Text';
 import RepositoryItem from './RepositoryItem';
 import useRepositories from '../../hooks/useRepositories';
-import { useNavigate, useParams } from 'react-router-native';
+import { useNavigate } from 'react-router-native';
 
 const RepositoryList = () => {
 	const navigate = useNavigate();
